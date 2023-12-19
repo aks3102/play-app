@@ -1,15 +1,21 @@
 {
   "name": "play",
   "version": "1.0.0",
-  "description": "",
+  "description": "A backend for a play app",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js"
   },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "express"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.1"
   }
 }
