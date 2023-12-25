@@ -23,9 +23,12 @@ const userSchema = new Schema(
       required: [true, "Password is required"],
       trim: true,
     },
+    refreshToken: {
+      type: String,
+    },
   },
   { timestamps: true }
-); 
+);
 
 userSchema.pre("save", async function (next) {
   if (this.isModified("password")) {
@@ -54,12 +57,7 @@ userSchema.methods.generateToken = function () {
 
 userSchema.methods.generateRefreshToken = function () {
   const payload = {
-    id: this._id,
-    username: this.username,
-    email: this.email,
-    fullName: this.fullName,
-    avatar: this.avatar,
-    coverImage: this.coverImage,
+    _id: this._id,
   };
   return Jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
