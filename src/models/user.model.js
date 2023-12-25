@@ -14,7 +14,7 @@ const userSchema = new Schema(
       index: true,
     },
     email: { type: String, required: true, unique: true, trim: true },
-    fullname: { type: String, required: true, trim: true, index: true },
+    fullName: { type: String, required: true, trim: true, index: true },
     avatar: { type: String, required: true },
     coverImage: { type: String },
     watchHistory: [{ type: Schema.Types.ObjectId, ref: "Video" }],
@@ -43,7 +43,7 @@ userSchema.methods.generateToken = function () {
     _id: this._id,
     username: this.username,
     email: this.email,
-    fullname: this.fullname,
+    fullName: this.fullName,
     avatar: this.avatar,
     coverImage: this.coverImage,
   };
@@ -57,7 +57,7 @@ userSchema.methods.generateRefreshToken = function () {
     id: this._id,
     username: this.username,
     email: this.email,
-    fullname: this.fullname,
+    fullName: this.fullName,
     avatar: this.avatar,
     coverImage: this.coverImage,
   };
